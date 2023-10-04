@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancer Diagnosis Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        #wrap {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .entryForm {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .entryForm th, .entryForm td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .entryForm th {
+            width: 40%;
+        }
+
+        .entryForm input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 16px;
+        }
+
+        .btns {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-clear {
+            background-color: #ccc;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .result {
+        text-align: center;
+        }
+        .result-image {
+        width: 567px;
+        height: 567px;
+        display: block;
+        margin: 0 auto;
+        }
+
+        .prediction-text {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <h1>Predict Cancer Diagnosis</h1>
+        <section id="cancer" class="frame2">
+            <div class="login">
+                <form action="{{ url_for('predict') }}" method="post">
+                    <table class="entryForm">
+                        <tr>
+                            <th>Perimeter Mean (cm):</th>
+                            <td><input type="text" name="perimeter_mean" placeholder="Perimeter Mean (cm)" required="required" /></td>
+                        </tr>
+                        <tr>
+                            <th>Area Mean (cm²):</th>
+                            <td><input type="text" name="area_mean" placeholder="Area Mean (cm²)" required="required" /></td>
+                        </tr>
+                        <tr>
+                            <th>Area SE (cm²):</th>
+                            <td><input type="text" name="area_se" placeholder="Area SE (cm²)" required="required" /></td>
+                        </tr>
+                        <tr>
+                            <th>Perimeter Worst (cm):</th>
+                            <td><input type="text" name="perimeter_worst" placeholder="Perimeter Worst (cm)" required="required" /></td>
+                        </tr>
+                        <tr>
+                            <th>Area Worst (cm²):</th>
+                            <td><input type="text" name="area_worst" placeholder="Area Worst (cm²)" required="required" /></td>
+                        </tr>
+                    </table>
+                    <div class="btns">
+                        <button type="reset" class="btn btn-clear">Reset</button>
+                        <button type="submit" class="btn btn-primary btn-block">Predict</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <br>
+        <br>
+        <div class="result">
+            <p class="prediction-text">{{ prediction_text }}</p>
+            {% if prediction_text == 'Diagnosis: Malignant' %}
+                <img src="{{ url_for('static', filename='malignant.jpg') }}" alt="Malignant" class="result-image">
+            {% elif prediction_text == 'Diagnosis: Benign' %}
+                <img src="{{ url_for('static', filename='goodews.jpg') }}" alt="Benign" class="result-image">
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
