@@ -75,6 +75,7 @@ Perimeter Worst (cm)
 Area Worst (cm²)
 The application predicts whether the diagnosis is Benign or Malignant and displays the result.
 ## Web Application
-![The Home Page]()
-![DiangosisPredictionBenign]()
-![DiangosisPredictionMalignant]()
+![The Home Page](https://github.com/hkhey/Breast-cancer-prediction-APP/blob/main/screenshots/MainPage.PNG
+)
+![DiangosisPredictionBenign](https://github.com/hkhey/Breast-cancer-prediction-APP/blob/main/screenshots/predictionbenign.PNG)
+![DiangosisPredictionMalignant](https://github.com/hkhey/Breast-cancer-prediction-APP/blob/main/screenshots/predictionmalignant.PNG)
