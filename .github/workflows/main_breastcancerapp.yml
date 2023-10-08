@@ -2,7 +2,7 @@
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 # More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
 
-name: Build and deploy Python app to Azure Web App - BreastCancerApp
+name: Build and deploy Python app to Azure Web App - breastcancerapp
 
 on:
   push:
@@ -20,15 +20,8 @@ jobs:
       - name: Set up Python version
         uses: actions/setup-python@v1
         with:
-          python-version: '3.9'
-      - name: Set up Rust
-        run: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path
-      - name: Set up Rust environment
-        run: source $HOME/.cargo/env 
-      - name: Check Rust and Cargo
-        run: |
-          rustc --version
-          cargo --version
+          python-version: '3.11'
+
       - name: Create and start virtual environment
         run: |
           python -m venv venv
@@ -36,7 +29,6 @@ jobs:
       
       - name: Install dependencies
         run: pip install -r requirements.txt
-             pip install cython numpy scikit-learn
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       
@@ -66,6 +58,6 @@ jobs:
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
-          app-name: 'BreastCancerApp'
+          app-name: 'breastcancerapp'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_913AF19AF8914D59B79AA5BCD528E239 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F11A0F8A6F8348F99B9A2765C1484F14 }}
