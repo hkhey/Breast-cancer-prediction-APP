@@ -81,6 +81,7 @@ The application predicts whether the diagnosis is Benign or Malignant and displa
   <img src="https://github.com/hkhey/Breast-cancer-prediction-APP/raw/main/screenshots/predictionbenign.PNG" alt="Diagnosis Prediction Benign" width="250" />
   <img src="https://github.com/hkhey/Breast-cancer-prediction-APP/raw/main/screenshots/predictionmalignant.PNG" alt="Diagnosis Prediction Malignant" width="250" />
 </div>
+
 ## Deployment on Heroku
 To deploy the Breast Cancer Diagnosis Prediction app on Heroku, follow these steps:
 
