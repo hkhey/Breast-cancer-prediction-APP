@@ -8,6 +8,7 @@ This repository contains code for predicting breast cancer diagnosis using machi
 - [Prerequisites](#prerequisites)
 - [Usage](#usage)
 - [Web Application](#web-application)
+- Deployment on Heroku
 
 ## Getting Started
 
@@ -80,4 +81,45 @@ The application predicts whether the diagnosis is Benign or Malignant and displa
   <img src="https://github.com/hkhey/Breast-cancer-prediction-APP/raw/main/screenshots/predictionbenign.PNG" alt="Diagnosis Prediction Benign" width="250" />
   <img src="https://github.com/hkhey/Breast-cancer-prediction-APP/raw/main/screenshots/predictionmalignant.PNG" alt="Diagnosis Prediction Malignant" width="250" />
 </div>
+## Deployment on Heroku
+To deploy the Breast Cancer Diagnosis Prediction app on Heroku, follow these steps:
+
+### Create a Heroku Account:
+If you don't have a Heroku account, sign up for one here.
+
+### Install Heroku CLI:
+Download and install the Heroku Command Line Interface (CLI) from here.
+
+### Login to Heroku:
+Open a terminal and run the following command to log in to your Heroku account:
+
+heroku login
+Initialize a Git Repository (if not already done):
+If your project is not already a Git repository, initialize one by running:
+git init
+### Create a requirements.txt File:
+Create a requirements.txt file in your project's root directory containing the necessary Python dependencies. You can generate this file by running:
+
+pip freeze > requirements.txt
+### Create a Procfile:
+Create a file named Procfile (without any file extension) in your project's root directory with the following content:
+web: python app.py
+### Commit Changes to Git:
+Add and commit all the changes to your Git repository:
+git add .
+git commit -m "Initial commit for Heroku deployment"
+### Create a Heroku App:
+Run the following command to create a new Heroku app:
+heroku create
+### Deploy to Heroku:
+Push your code to the Heroku remote repository:
+git push heroku master
+### Open the App:
+Once the deployment is successful, open the app in your browser using:
+heroku open
+### View Logs (Optional):
+You can view the logs to check for any issues using:
+heroku logs --tail
+Now, your Breast Cancer Diagnosis Prediction app should be deployed on Heroku, and you can access it via the provided Heroku app URL.
+<img width="960" alt="heroku" src="https://github.com/hkhey/Breast-cancer-prediction-APP/assets/76151779/29a5d6ba-8bac-4af7-9010-50ba0ed12924">
 
